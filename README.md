@@ -5,7 +5,6 @@ An app showing jokes.
 ## Getting Started
 
 This project is showing jokes from the following free api.
-
 https://v2.jokeapi.dev
 
 In this app, showing all jokes, and can browse jokes by category.
@@ -15,5 +14,4 @@ In this app, showing all jokes, and can browse jokes by category.
 
 
 UI Reference
-
 https://dribbble.com/shots/15491472-Jokes-App-For-Kids
