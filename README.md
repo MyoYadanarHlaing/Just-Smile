@@ -23,3 +23,4 @@ https://dribbble.com/shots/15491472-Jokes-App-For-Kids
 
 ![Screenshot_20240930_165914](https://github.com/user-attachments/assets/4de77078-6dcf-4060-b365-4a90c2f635c6)
 
+![Screenshot_20241001_144837](https://github.com/user-attachments/assets/a4b24640-9d83-474a-a5e9-d74cf00810c4)
