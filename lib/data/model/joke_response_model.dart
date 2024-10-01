@@ -5,14 +5,21 @@ part 'joke_response_model.g.dart';
 @JsonSerializable()
 class JokeResponseModel {
   final bool error;
-  final int amount;
-  final List<JokeModel> jokes;
+  final int? amount;
+  final List<JokeModel>? jokes;
+  final bool? internalError;
+  final String? message;
+  final List<String>? causedBy;
+  final String? additionalInfo;
 
-  JokeResponseModel({
-    required this.error,
-    required this.amount,
-    required this.jokes,
-  });
+  JokeResponseModel(
+      {required this.error,
+      required this.amount,
+      required this.jokes,
+      this.internalError,
+      this.message,
+      this.causedBy,
+      this.additionalInfo});
 
   factory JokeResponseModel.fromJson(Map<String, dynamic> json) =>
       _$JokeResponseModelFromJson(json);

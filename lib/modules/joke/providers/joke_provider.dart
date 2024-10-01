@@ -16,12 +16,29 @@ class JokeProvider extends ChangeNotifier {
     if (response.statusCode == 200) {
       if (response.data != null) {
         JokeResponseModel jokeModel = JokeResponseModel.fromJson(response.data);
-        if (!jokeModel.error) {
-          jokes = jokeModel.jokes;
+        if (!jokeModel.error && jokeModel.jokes != null) {
+          jokes = jokeModel.jokes!;
         }
       }
     } else {
-      print('joke error=${response.data}');
+      debugPrint('joke error=${response.data}');
+    }
+    isLoading = false;
+    notifyListeners();
+  }
+
+  void getJokesByCategory(String catName) async {
+    isLoading = true;
+    Response response = await remoteDataRepository.getJokesByCategory(catName);
+    if (response.statusCode == 200) {
+      if (response.data != null) {
+        JokeResponseModel jokeModel = JokeResponseModel.fromJson(response.data);
+        if (!jokeModel.error && jokeModel.jokes != null) {
+          jokes = jokeModel.jokes!;
+        }
+      }
+    } else {
+      debugPrint('joke by category error=${response.data}');
     }
     isLoading = false;
     notifyListeners();

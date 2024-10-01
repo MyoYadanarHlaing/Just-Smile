@@ -9,10 +9,16 @@ part of 'joke_response_model.dart';
 JokeResponseModel _$JokeResponseModelFromJson(Map<String, dynamic> json) =>
     JokeResponseModel(
       error: json['error'] as bool,
-      amount: (json['amount'] as num).toInt(),
-      jokes: (json['jokes'] as List<dynamic>)
-          .map((e) => JokeModel.fromJson(e as Map<String, dynamic>))
+      amount: (json['amount'] as num?)?.toInt(),
+      jokes: (json['jokes'] as List<dynamic>?)
+          ?.map((e) => JokeModel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      internalError: json['internalError'] as bool?,
+      message: json['message'] as String?,
+      causedBy: (json['causedBy'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      additionalInfo: json['additionalInfo'] as String?,
     );
 
 Map<String, dynamic> _$JokeResponseModelToJson(JokeResponseModel instance) =>
@@ -20,6 +26,10 @@ Map<String, dynamic> _$JokeResponseModelToJson(JokeResponseModel instance) =>
       'error': instance.error,
       'amount': instance.amount,
       'jokes': instance.jokes,
+      'internalError': instance.internalError,
+      'message': instance.message,
+      'causedBy': instance.causedBy,
+      'additionalInfo': instance.additionalInfo,
     };
 
 JokeModel _$JokeModelFromJson(Map<String, dynamic> json) => JokeModel(

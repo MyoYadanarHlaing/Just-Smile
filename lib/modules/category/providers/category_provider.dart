@@ -19,10 +19,10 @@ class CategoryProvider extends ChangeNotifier {
       if (!categoryResponseModel.error) {
         categories = categoryResponseModel.categories;
       } else {
-        print('cat err=${categoryResponseModel.error}');
+        debugPrint('cat err=${categoryResponseModel.error}');
       }
     } else {
-      print('error=${response.data.toString()}');
+      debugPrint('error=${response.data.toString()}');
     }
     isLoading = false;
     notifyListeners();

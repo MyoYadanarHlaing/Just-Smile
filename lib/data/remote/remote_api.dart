@@ -14,6 +14,6 @@ class RemoteApi {
   }
 
   Future<Response> getJokesByCategory(String catName) async {
-    return dio.get('/joke/$catName');
+    return dio.get('/joke/$catName?amount=10');
   }
 }

@@ -16,8 +16,11 @@ class CategoryItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => const JokePage()));
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => JokePage(
+                  fromCategory: true,
+                  catName: name,
+                )));
       },
       child: Container(
         decoration: BoxDecoration(
