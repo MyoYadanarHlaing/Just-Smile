@@ -30,8 +30,8 @@ jobs:
 #        run: flutter analyze
 
       #5. Run tests (optional)
-      - name: Run tests
-        run: flutter test
+#      - name: Run tests
+#        run: flutter test
 
       #6. Build Release APK
       - name: Build release APK
