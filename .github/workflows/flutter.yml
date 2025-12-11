@@ -1,0 +1,47 @@
+name: Just-Smile CI/CD
+
+on:
+  push:
+    branches:
+      - master
+    pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Android build only
+
+    steps:
+      #1. Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      #2. Install Flutter
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.27.2'
+
+      #3. Install dependencies
+      - name: Install dependencies
+        run: flutter pub get
+
+      #4. Analyze code (optional)
+      - name: Analyze project
+        run: flutter analyze
+
+      #5. Run tests (optional)
+      - name: Run tests
+        run: flutter test
+
+      #6. Build Release APK
+      - name: Build release APK
+        run: flutter build apk --release
+
+      #7. Upload APK as artifact
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+
