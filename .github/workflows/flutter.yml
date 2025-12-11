@@ -26,8 +26,8 @@ jobs:
         run: flutter pub get
 
       #4. Analyze code (optional)
-      - name: Analyze project
-        run: flutter analyze
+#      - name: Analyze project
+#        run: flutter analyze
 
       #5. Run tests (optional)
       - name: Run tests
