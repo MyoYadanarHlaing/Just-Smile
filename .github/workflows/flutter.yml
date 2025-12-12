@@ -1,10 +1,10 @@
 name: Just-Smile CI/CD
 
-on:
-  push:
-    branches:
-      - master
-    pull_request:
+#on:
+#  push:
+#    branches:
+#      - master
+#    pull_request:
 
 jobs:
   build:
