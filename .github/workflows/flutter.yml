@@ -8,7 +8,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest # Android build only
+    runs-on: macos-latest # for iOS build
+#    ubuntu-latest # Android build only
 
     steps:
       #1. Checkout code
@@ -35,13 +36,15 @@ jobs:
 
       #6. Build Release APK
       - name: Build release APK
-        run: flutter build apk --release
+        run: flutter build ipa --release
+#        flutter build apk --release
 
       #7. Upload APK as artifact
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: build/ios/ipa/*.ipa
+#          build/app/outputs/flutter-apk/app-release.apk
 
 
